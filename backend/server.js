@@ -1,3 +1,4 @@
+const path = require("path");
 const reportRoutes = require("./routes/reportRoutes");
 const express = require("express");
 const cors = require("cors");
@@ -5,19 +6,10 @@ require("dotenv").config();
 const pool = require("./config/db");
 const app = express();
 const PORT = process.env.PORT || 5000;
+app.use(express.static(path.join(__dirname, "public")));
 app.use(cors());
 app.use(express.json());
 app.use("/api/reports", reportRoutes);
-
-app.get("/", (req, res) => {
-    res.json({
-        message: "LG Daily Report API is running",
-        status: "success"
-    });
-});
-/* =====================================================
-   DATABASE TEST ROUTE
-===================================================== */
 app.get("/api/test-db", async (req, res) => {
     try {
         const result = await pool.query(
@@ -35,9 +27,11 @@ app.get("/api/test-db", async (req, res) => {
         });
     }
 });
-/* =====================================================
-   START SERVER
-===================================================== */
+app.get("/", (req, res) => {
+    res.sendFile(
+        path.join(__dirname, "public", "index.html")
+    );
+});
 app.listen(PORT, () => {
     console.log(
         `🚀 LG Daily Report server running on http://localhost:${PORT}`
