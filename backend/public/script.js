@@ -90,17 +90,10 @@ document.addEventListener("DOMContentLoaded", () => {
         return field.value.trim();
     }
 
-
     function getNumber(entry, selector) {
-
         const value = getValue(entry, selector);
-
-        function getNumber(entry, selector) {
-            const value = getValue(entry, selector);
-            return value === "" ? null : Number(value);
-        }
+        return value === "" ? null : Number(value);
     }
-
 
     /* =====================================================
        AUTO-SAVE OPEN ENTRIES
