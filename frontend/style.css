@@ -1,0 +1,1064 @@
+:root {
+    --green-900: #064b28;
+    --green-800: #075d31;
+    --green-700: #08743b;
+    --green-600: #0b8746;
+    --green-100: #eaf7ef;
+    --brown-800: #70300d;
+    --brown-700: #844016;
+    --blue: #0878bd;
+    --orange: #ff7600;
+    --purple: #6d45c5;
+    --text: #202020;
+    --muted: #666666;
+    --border: #d8d8d8;
+    --background: #f7f8f7;
+    --white: #ffffff;
+    --radius-lg: 14px;
+    --radius-md: 10px;
+    --radius-sm: 7px;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family:
+        Inter,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+    background: var(--background);
+    color: var(--text);
+
+    line-height: 1.5;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+}
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.report-page {
+    width: min(1180px, calc(100% - 32px));
+    margin: 24px auto 50px;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.report-header {
+    background: linear-gradient(135deg,
+            var(--green-900),
+            var(--green-700));
+
+    color: white;
+    min-height: 92px;
+    display: flex;
+    align-items: center;
+    padding: 18px 28px;
+    border-radius: 14px 14px 0 0;
+    box-shadow: var(--shadow);
+}
+
+.header-brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.brand-icon {
+    width: 46px;
+    height: 46px;
+    display: grid;
+    place-items: center;
+    font-size: 31px;
+}
+
+.header-brand h1 {
+    font-size: 25px;
+    font-weight: 750;
+    letter-spacing: 0.3px;
+}
+
+.header-brand p {
+    margin-top: 2px;
+
+    font-size: 14px;
+    opacity: 0.92;
+}
+
+
+/* =========================================================
+   MAIN FORM
+========================================================= */
+
+.daily-report-form {
+    background: white;
+
+    padding: 20px 16px 28px;
+
+    border-radius: 0 0 14px 14px;
+
+    box-shadow: var(--shadow);
+}
+
+
+/* =========================================================
+   ATTENDANCE
+========================================================= */
+
+.attendance-section {
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-lg);
+
+    padding: 18px;
+
+    margin-bottom: 28px;
+
+    background: white;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    color: var(--green-900);
+
+    font-size: 16px;
+    font-weight: 750;
+
+    padding-bottom: 12px;
+
+    border-bottom: 1px solid #e6e6e6;
+
+    margin-bottom: 18px;
+}
+
+.section-number {
+    font-weight: 800;
+}
+
+.attendance-grid {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr 1fr 1fr;
+
+    gap: 18px 18px;
+}
+
+.form-group {
+    min-width: 0;
+}
+
+.form-group label {
+    display: block;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    margin-bottom: 7px;
+
+    color: #202020;
+}
+
+.required {
+    color: #e00000;
+    margin-left: 2px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    border: 1px solid #d3d3d3;
+
+    border-radius: 8px;
+
+    background: white;
+
+    color: #202020;
+
+    padding: 10px 12px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.form-group input,
+.form-group select {
+    min-height: 42px;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 85px;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #9a9a9a;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--green-700);
+
+    box-shadow:
+        0 0 0 3px rgba(8, 116, 59, 0.1);
+}
+
+
+/* =========================================================
+   PRESENT / ABSENT
+========================================================= */
+
+.attendance-status {
+    grid-column: 1 / -1;
+}
+
+.status-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.status-option {
+    position: relative;
+
+    margin: 0 !important;
+}
+
+.status-option input {
+    position: absolute;
+
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+.status-option span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 76px;
+    min-height: 40px;
+
+    padding: 8px 15px;
+
+    border: 1px solid #d0d0d0;
+
+    border-radius: 7px;
+
+    background: white;
+
+    font-size: 13px;
+    font-weight: 650;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+.status-option input:checked+span {
+    background: var(--green-700);
+    border-color: var(--green-700);
+    color: white;
+}
+
+.status-option span:hover {
+    border-color: var(--green-600);
+}
+
+
+/* =========================================================
+   ACTIVITIES HEADING
+========================================================= */
+
+.activities-heading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    color: var(--green-900);
+
+    margin: 8px 2px 14px;
+
+    font-size: 15px;
+    font-weight: 750;
+}
+
+.activities-icon {
+    font-size: 20px;
+}
+
+.heading-number {
+    margin-right: 4px;
+}
+
+
+/* =========================================================
+   ACTIVITY SECTION
+========================================================= */
+
+.activity-section {
+    margin-bottom: 12px;
+
+    border: 1px solid #dedede;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    background: white;
+
+    transition:
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.activity-section.has-entries {
+    border-color: #c7ddcf;
+
+    box-shadow:
+        0 3px 10px rgba(0, 80, 35, 0.06);
+}
+
+
+/* =========================================================
+   ACTIVITY HEADER
+========================================================= */
+
+.activity-header {
+    min-height: 76px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 18px;
+
+    padding: 12px 16px;
+}
+
+.activity-info {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    min-width: 0;
+}
+
+.activity-info>div:last-child {
+    min-width: 0;
+}
+
+.activity-info h2 {
+    color: var(--brown-800);
+
+    font-size: 15px;
+    font-weight: 750;
+
+    line-height: 1.3;
+}
+
+.activity-info p {
+    color: var(--muted);
+
+    font-size: 12px;
+
+    margin-top: 3px;
+}
+
+
+/* =========================================================
+   ACTIVITY ICONS
+========================================================= */
+
+.activity-icon {
+    flex: 0 0 42px;
+
+    width: 42px;
+    height: 42px;
+
+    border-radius: 7px;
+
+    display: grid;
+    place-items: center;
+
+    font-size: 21px;
+
+    color: white;
+}
+
+.farmer-icon {
+    background: #23882f;
+}
+
+.field-icon {
+    background: var(--blue);
+}
+
+.plantation-icon {
+    background: var(--orange);
+}
+
+.lifted-icon {
+    background: var(--purple);
+}
+
+.ffb-icon {
+    background: #704018;
+}
+
+
+/* =========================================================
+   ADD ACTIVITY BUTTON
+========================================================= */
+
+.add-activity-btn {
+    flex: 0 0 auto;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    min-height: 38px;
+
+    padding: 7px 14px;
+
+    border: 1px solid var(--green-700);
+
+    border-radius: 7px;
+
+    background: white;
+
+    color: var(--green-800);
+
+    font-size: 13px;
+    font-weight: 650;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.15s ease;
+}
+
+.add-activity-btn:hover {
+    background: var(--green-700);
+    color: white;
+}
+
+.add-activity-btn:active {
+    transform: scale(0.98);
+}
+
+.plus-icon {
+    font-size: 20px;
+    line-height: 1;
+}
+
+
+/* =========================================================
+   ACTIVITY ENTRIES
+========================================================= */
+
+.activity-entries {
+    padding: 0 14px;
+}
+
+
+/* =========================================================
+   ENTRY CARD
+========================================================= */
+
+.entry-card {
+    border: 1px solid #dce5df;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    margin: 0 0 12px;
+
+    background: #fff;
+
+    animation: revealEntry 0.3s ease both;
+}
+
+@keyframes revealEntry {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+        max-height: 0;
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        max-height: 1200px;
+    }
+}
+
+
+/* =========================================================
+   ENTRY HEADER
+========================================================= */
+
+.entry-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 12px;
+
+    padding: 11px 14px;
+
+    background: var(--green-900);
+
+    color: white;
+}
+
+.entry-section-label {
+    display: block;
+
+    font-size: 13px;
+    font-weight: 750;
+}
+
+.entry-number {
+    display: block;
+
+    font-size: 11px;
+
+    opacity: 0.85;
+
+    margin-top: 2px;
+}
+
+.remove-entry-btn {
+    width: 30px;
+    height: 30px;
+
+    border: 1px solid rgba(255, 255, 255, 0.5);
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 20px;
+    line-height: 1;
+
+    display: grid;
+    place-items: center;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.remove-entry-btn:hover {
+    background: rgba(255, 255, 255, 0.16);
+
+    border-color: white;
+}
+
+
+/* =========================================================
+   ENTRY FORM GRID
+========================================================= */
+
+.entry-form-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 16px;
+
+    padding: 18px;
+}
+
+.full-width {
+    grid-column: 1 / -1;
+}
+
+
+/* =========================================================
+   ENTRY ACTIONS
+========================================================= */
+
+.entry-card-actions {
+    display: flex;
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    padding: 0 18px 18px;
+}
+
+.cancel-entry-btn,
+.save-entry-btn {
+    min-height: 38px;
+
+    padding: 7px 16px;
+
+    border-radius: 7px;
+
+    font-size: 13px;
+    font-weight: 650;
+}
+
+.cancel-entry-btn {
+    border: 1px solid #ccc;
+
+    background: white;
+
+    color: #333;
+}
+
+.cancel-entry-btn:hover {
+    background: #f5f5f5;
+}
+
+.save-entry-btn {
+    border: 1px solid var(--green-700);
+
+    background: var(--green-700);
+
+    color: white;
+}
+
+.save-entry-btn:hover {
+    background: var(--green-800);
+}
+
+
+/* =========================================================
+   ADD ANOTHER BUTTON
+========================================================= */
+
+.add-another-btn {
+    width: 100%;
+
+    min-height: 42px;
+
+    margin: 2px 0 14px;
+
+    border: 1px dashed #72b88c;
+
+    border-radius: 7px;
+
+    background: #fbfffc;
+
+    color: var(--green-800);
+
+    font-size: 13px;
+    font-weight: 650;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.add-another-btn:hover {
+    background: var(--green-100);
+
+    border-color: var(--green-700);
+}
+
+
+/* =========================================================
+   FORM ACTIONS
+========================================================= */
+
+.form-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-top: 22px;
+    padding: 15px 16px;
+    background: white;
+    border: 1px solid #dcdcdc;
+    border-radius: 10px;
+}
+
+.reset-btn {
+    min-height: 42px;
+
+    padding: 8px 17px;
+
+    border: 1px solid #bdbdbd;
+
+    border-radius: 7px;
+
+    background: white;
+
+    color: #222;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.reset-btn:hover {
+    background: #f4f4f4;
+}
+
+.submit-btn {
+    width: min(330px, 100%);
+    min-height: 44px;
+    padding: 9px 25px;
+    border: none;
+    border-radius: 7px;
+    background: var(--green-700);
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    box-shadow: 0 3px 7px rgba(8, 116, 59, 0.18);
+    transition:
+        background 0.2s ease,
+        transform 0.15s ease;
+}
+
+.submit-btn:hover {
+    background: var(--green-800);
+}
+
+.submit-btn:active {
+    transform: scale(0.98);
+}
+
+.submit-icon {
+    margin-right: 6px;
+}
+
+.security-note {
+    grid-column: 1 / -1;
+
+    text-align: center;
+
+    color: #555;
+
+    font-size: 11px;
+
+    margin-top: -3px;
+}
+
+
+/* =========================================================
+   VALIDATION
+========================================================= */
+
+.form-group input.invalid,
+.form-group select.invalid,
+.form-group textarea.invalid {
+    border-color: #d93025;
+
+    box-shadow:
+        0 0 0 3px rgba(217, 48, 37, 0.08);
+}
+
+
+/* =========================================================
+   HIDDEN
+========================================================= */
+
+[hidden] {
+    display: none !important;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 850px) {
+
+    .report-page {
+        width: min(100% - 20px, 760px);
+
+        margin-top: 10px;
+    }
+
+    .attendance-grid {
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .attendance-status {
+        grid-column: 1 / -1;
+    }
+
+    .entry-form-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    body {
+        background: white;
+    }
+
+    .report-page {
+        width: 100%;
+
+        margin: 0;
+
+        padding: 0;
+    }
+
+    .report-header {
+        min-height: 76px;
+
+        padding: 14px 16px;
+
+        border-radius: 0;
+    }
+
+    .brand-icon {
+        width: 38px;
+        height: 38px;
+
+        font-size: 27px;
+    }
+
+    .header-brand {
+        gap: 10px;
+    }
+
+    .header-brand h1 {
+        font-size: 20px;
+    }
+
+    .header-brand p {
+        font-size: 11px;
+    }
+
+    .daily-report-form {
+        padding: 12px 10px 20px;
+
+        border-radius: 0;
+
+        box-shadow: none;
+    }
+
+    .attendance-section {
+        padding: 14px;
+
+        margin-bottom: 20px;
+    }
+
+    .section-title {
+        font-size: 14px;
+    }
+
+    .attendance-grid {
+        grid-template-columns: 1fr;
+
+        gap: 14px;
+    }
+
+    .attendance-status {
+        grid-column: auto;
+    }
+
+    .status-option span {
+        min-width: 84px;
+
+        min-height: 42px;
+    }
+
+    .activities-heading {
+        margin-left: 3px;
+
+        font-size: 14px;
+    }
+
+    .activity-header {
+        min-height: 72px;
+
+        padding: 10px 11px;
+
+        gap: 10px;
+    }
+
+    .activity-info {
+        gap: 9px;
+    }
+
+    .activity-icon {
+        flex-basis: 38px;
+
+        width: 38px;
+        height: 38px;
+
+        font-size: 18px;
+    }
+
+    .activity-info h2 {
+        font-size: 12.5px;
+    }
+
+    .activity-info p {
+        font-size: 10.5px;
+    }
+
+    .add-activity-btn {
+        min-height: 38px;
+
+        padding: 7px 9px;
+
+        font-size: 11px;
+
+        white-space: nowrap;
+    }
+
+    .plus-icon {
+        font-size: 18px;
+    }
+
+    .activity-entries {
+        padding: 0 8px;
+    }
+
+    .entry-form-grid {
+        grid-template-columns: 1fr;
+
+        gap: 13px;
+
+        padding: 14px;
+    }
+
+    .full-width {
+        grid-column: auto;
+    }
+
+    .entry-card-header {
+        padding: 10px 12px;
+    }
+
+    .entry-section-label {
+        font-size: 12px;
+    }
+
+    .entry-number {
+        font-size: 10px;
+    }
+
+    .entry-card-actions {
+        padding: 0 14px 14px;
+    }
+
+    .cancel-entry-btn,
+    .save-entry-btn {
+        flex: 1;
+
+        min-height: 42px;
+    }
+
+    .form-actions {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 10px;
+        margin-top: 15px;
+        border-radius: 9px;
+    }
+
+    .reset-btn {
+        min-height: 44px;
+
+        padding: 7px 10px;
+
+        font-size: 12px;
+    }
+
+    .submit-btn {
+        width: 100%;
+        min-height: 46px;
+        padding: 8px 12px;
+        font-size: 13px
+    }
+
+    .security-note {
+        font-size: 10px;
+    }
+}
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+@media (max-width: 390px) {
+    .activity-header {
+        align-items: flex-start;
+    }
+    .activity-info h2 {
+        font-size: 12px;
+    }
+    .activity-info p {
+        display: none;
+    }
+    .add-activity-btn {
+        font-size: 10px;
+
+        padding: 6px 7px;
+    }
+    .form-actions {
+        grid-template-columns: 1fr 1.5fr;
+    }
+}
+.entry-card.saved {
+    border-color: #b9d8c4;
+}
+.save-entry-btn:disabled {
+    cursor: default;
+}

@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L.G. Daily Report</title>
+    <!-- We will add our CSS file in the next step -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- =========================================================
+         MAIN PAGE
+    ========================================================== -->
+    <main class="report-page">
+        <!-- =====================================================
+             HEADER
+        ====================================================== -->
+        <header class="report-header">
+
+            <div class="header-brand">
+
+                <div class="brand-icon" aria-hidden="true">
+                    🌿
+                </div>
+
+                <div>
+                    <h1>L.G. DAILY REPORT</h1>
+                    <p>Lohiya Group • Jagtial District</p>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- =====================================================
+             REPORT FORM
+        ====================================================== -->
+        <form id="dailyReportForm" class="daily-report-form">
+
+            <!-- =================================================
+                 1. DAILY ATTENDANCE
+            ================================================== -->
+            <section class="attendance-section">
+
+                <div class="section-title">
+                    <span class="section-number">1.</span>
+                    <span>DAILY ATTENDANCE</span>
+                </div>
+
+                <div class="attendance-grid">
+
+                    <!-- Officer -->
+                    <div class="form-group">
+                        <label for="officerName">
+                            Name of Officer<span class="required">*</span>
+                        </label>
+                        <input type="text" id="officerName" name="officerName" placeholder="Enter officer name" required>
+                    </div>
+                    <!-- Working Location -->
+                    <div class="form-group">
+                        <label for="workingLocation">
+                            Working Location<span class="required">*</span>
+                        </label>
+
+                        <input type="text" id="workingLocation" name="workingLocation"
+                            placeholder="Enter working location" required>
+                    </div>
+                    <!-- Date -->
+                    <div class="form-group">
+                        <label for="reportDate">
+                            Date<span class="required">*</span>
+                        </label>
+
+                        <input type="date" id="reportDate" name="reportDate" required>
+                    </div>
+
+
+                    <!-- Present / Absent -->
+                    <div class="form-group attendance-status">
+
+                        <label>
+                            Present / Absent<span class="required">*</span>
+                        </label>
+
+                        <div class="status-buttons">
+
+                            <label class="status-option">
+                                <input type="radio" name="attendance" value="Present">
+                                <span>Present</span>
+                            </label>
+
+                            <label class="status-option">
+                                <input type="radio" name="attendance" value="Absent">
+                                <span>Absent</span>
+                            </label>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 ACTIVITIES HEADER
+            ================================================== -->
+            <div class="activities-heading">
+
+                <span class="activities-icon">▣</span>
+
+                <div>
+                    <span class="heading-number">2 - 6.</span>
+                    <span>ADD ACTIVITIES</span>
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 2. NEW FARMER IDENTIFICATION
+            ================================================== -->
+            <section class="activity-section" id="newFarmerSection" data-activity="new-farmer">
+
+                <!-- Activity Header -->
+                <div class="activity-header">
+
+                    <div class="activity-info">
+
+                        <div class="activity-icon farmer-icon">
+                            👥
+                        </div>
+
+                        <div>
+                            <h2>2. NEW FARMER IDENTIFICATION</h2>
+                            <p>Add details of new farmers identified today.</p>
+                        </div>
+
+                    </div>
+
+                    <button type="button" class="add-activity-btn" data-action="add-farmer">
+                        <span class="plus-icon">+</span>
+                        Add New Farmer
+                    </button>
+
+                </div>
+
+
+                <!-- Entries will be added here by JavaScript -->
+                <div class="activity-entries" id="newFarmerEntries"></div>
+
+            </section>
+
+
+            <!-- =================================================
+                 3. FIELD VISIT / GARDEN VISIT
+            ================================================== -->
+            <section class="activity-section" id="fieldVisitSection" data-activity="field-visit">
+
+                <div class="activity-header">
+
+                    <div class="activity-info">
+
+                        <div class="activity-icon field-icon">
+                            🌱
+                        </div>
+
+                        <div>
+                            <h2>3. FIELD VISIT / GARDEN VISIT</h2>
+                            <p>Add details of field / garden visits.</p>
+                        </div>
+
+                    </div>
+
+                    <button type="button" class="add-activity-btn" data-action="add-field-visit">
+                        <span class="plus-icon">+</span>
+                        Add New Visit
+                    </button>
+
+                </div>
+
+                <div class="activity-entries" id="fieldVisitEntries"></div>
+
+            </section>
+
+
+            <!-- =================================================
+                 4. PLANTATION COMPLETED DATA
+            ================================================== -->
+            <section class="activity-section" id="plantationSection" data-activity="plantation">
+
+                <div class="activity-header">
+
+                    <div class="activity-info">
+
+                        <div class="activity-icon plantation-icon">
+                            🌳
+                        </div>
+
+                        <div>
+                            <h2>4. PLANTATION COMPLETED DATA</h2>
+                            <p>Add details of plantations completed today.</p>
+                        </div>
+
+                    </div>
+
+                    <button type="button" class="add-activity-btn" data-action="add-plantation">
+                        <span class="plus-icon">+</span>
+                        Add New Plantation
+                    </button>
+
+                </div>
+
+                <div class="activity-entries" id="plantationEntries"></div>
+
+            </section>
+
+
+            <!-- =================================================
+                 5. PLANT LIFTED
+            ================================================== -->
+            <section class="activity-section" id="plantLiftedSection" data-activity="plant-lifted">
+
+                <div class="activity-header">
+
+                    <div class="activity-info">
+
+                        <div class="activity-icon lifted-icon">
+                            🌿
+                        </div>
+
+                        <div>
+                            <h2>5. PLANT LIFTED</h2>
+                            <p>Add details of plants lifted today.</p>
+                        </div>
+
+                    </div>
+
+                    <button type="button" class="add-activity-btn" data-action="add-plant-lifted">
+                        <span class="plus-icon">+</span>
+                        Add Plant Lifted
+                    </button>
+
+                </div>
+
+                <div class="activity-entries" id="plantLiftedEntries"></div>
+
+            </section>
+
+
+            <!-- =================================================
+                 6. FFB PURCHASE / PROCUREMENT
+            ================================================== -->
+            <section class="activity-section" id="ffbSection" data-activity="ffb">
+
+                <div class="activity-header">
+
+                    <div class="activity-info">
+
+                        <div class="activity-icon ffb-icon">
+                            🚚
+                        </div>
+
+                        <div>
+                            <h2>6. FFB PURCHASE / PROCUREMENT</h2>
+                            <p>Add details of FFB purchase / procurement.</p>
+                        </div>
+
+                    </div>
+
+                    <button type="button" class="add-activity-btn" data-action="add-ffb">
+                        <span class="plus-icon">+</span>
+                        Add New Purchase
+                    </button>
+
+                </div>
+
+                <div class="activity-entries" id="ffbEntries"></div>
+
+            </section>
+
+
+            <!-- =================================================
+                 SUBMIT AREA
+            ================================================== -->
+            <section class="form-actions">
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    <span class="submit-icon">➤</span>
+                    Submit Daily Report
+                </button>
+                <p class="security-note">
+                    🔒 Your data is safe and secure
+                </p>
+            </section>
+        </form>
+    </main>
+
+
+    <!-- =========================================================
+         TEMPLATES
+
+         These are hidden for now.
+         JavaScript will use these templates to create:
+         - Farmer entries
+         - Field visit entries
+         - Plantation entries
+         - Plant lifted entries
+         - FFB entries
+
+         We are deliberately keeping this logic out of HTML
+         interaction for now. We will implement it in script.js.
+    ========================================================== -->
+
+
+    <!-- =========================================================
+         NEW FARMER TEMPLATE
+    ========================================================== -->
+    <template id="farmerTemplate">
+
+        <div class="entry-card farmer-entry">
+
+            <div class="entry-card-header">
+                <div>
+                    <span class="entry-section-label">
+                        2. NEW FARMER IDENTIFICATION
+                    </span>
+                    <span class="entry-number">
+                        Farmer <span class="entry-index"></span>
+                    </span>
+                </div>
+
+                <button type="button" class="remove-entry-btn" aria-label="Remove farmer">
+                    ×
+                </button>
+            </div>
+            <div class="entry-form-grid">
+                <div class="form-group">
+                    <label>
+                        Name of farmer<span class="required">*</span>
+                    </label>
+
+                    <input type="text" name="farmerName[]" placeholder="Enter name">
+                </div>
+
+
+                <div class="form-group">
+                    <label>
+                        Village<span class="required">*</span>
+                    </label>
+
+                    <input type="text" name="farmerVillage[]" placeholder="Enter village">
+                </div>
+
+
+                <div class="form-group">
+                    <label>
+                        Mandal<span class="required">*</span>
+                    </label>
+
+                    <input type="text" name="farmerMandal[]" placeholder="Enter mandal">
+                </div>
+
+
+                <div class="form-group">
+                    <label>
+                        Extent holding (Acre)<span class="required">*</span>
+                    </label>
+
+                    <input type="number" name="extentHolding[]" min="0" step="0.01" placeholder="Enter extent">
+                </div>
+
+
+                <div class="form-group">
+                    <label>
+                        Borewell / Openwell<span class="required">*</span>
+                    </label>
+
+                    <select name="wellType[]">
+                        <option value="">Select</option>
+                        <option value="Borewell">Borewell</option>
+                        <option value="Openwell">Openwell</option>
+                    </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label>
+                        Existing Crop<span class="required">*</span>
+                    </label>
+
+                    <input type="text" name="existingCrop[]" placeholder="Enter crop">
+                </div>
+
+
+                <div class="form-group">
+                    <label>
+                        Oil palm Proposed Area in Acre<span class="required">*</span>
+                    </label>
+
+                    <input type="number" name="oilPalmArea[]" min="0" step="0.01" placeholder="Enter area">
+                </div>
+
+
+                <div class="form-group">
+                    <label>
+                        Expected Season <span class="required">*</span>
+                    </label>
+
+                    <select name="expectedSeason[]">
+                        <option value="">Select season</option>
+                        <option value="Kharif">Kharif</option>
+                        <option value="Rabi">Rabi</option>
+                        <option value="Summer">Summer</option>
+                    </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label>
+                        Mobile No <span class="required">*</span>
+                    </label>
+
+                    <input type="tel" name="farmerMobile[]" placeholder="Enter mobile no" maxlength="10">
+                </div>
+
+
+                <div class="form-group">
+                    <label>
+                        Plant DD <span class="required">*</span>
+                    </label>
+
+                    <input type="text" name="plantDD[]" placeholder="DD number">
+                </div>
+
+
+                <div class="form-group">
+                    <label>
+                        Drip DD <span class="required">*</span>
+                    </label>
+
+                    <input type="text" name="dripDD[]" placeholder="DD number">
+                </div>
+
+
+                <div class="form-group">
+                    <label>
+                        DD Paid YES/NO<span class="required">*</span>
+                    </label>
+
+                    <select name="ddPaid[]">
+                        <option value="">Select</option>
+                        <option value="YES">YES</option>
+                        <option value="NO">NO</option>
+                    </select>
+                </div>
+
+
+                <div class="form-group full-width">
+                    <label>
+                        Remarks <span class="required">*</span>
+                    </label>
+
+                    <textarea name="farmerRemarks[]" rows="3" placeholder="Enter remarks (if any)"></textarea>
+                </div>
+
+            </div>
+        </div>
+
+    </template>
+
+
+    <!-- =========================================================
+         FIELD VISIT TEMPLATE
+    ========================================================== -->
+    <template id="fieldVisitTemplate">
+
+        <div class="entry-card field-visit-entry">
+
+            <div class="entry-card-header">
+
+                <div>
+                    <span class="entry-section-label">
+                        3. FIELD VISIT / GARDEN VISIT
+                    </span>
+
+                    <span class="entry-number">
+                        Visit <span class="entry-index"></span>
+                    </span>
+                </div>
+
+                <button type="button" class="remove-entry-btn" aria-label="Remove field visit">
+                    ×
+                </button>
+
+            </div>
+
+
+            <div class="entry-form-grid">
+
+                <div class="form-group">
+                    <label>
+                        Name of farmer<span class="required">*</span>
+                    </label>
+
+                    <input type="text" name="visitFarmerName[]" placeholder="Enter farmer name">
+                </div>
+
+
+                <div class="form-group">
+                    <label>
+                        Field / Garden<span class="required">*</span>
+                    </label>
+
+                    <input type="text" name="fieldGarden[]" placeholder="Enter field / garden">
+                </div>
+
+
+                <div class="form-group">
+                    <label>
+                        Village<span class="required">*</span>
+                    </label>
+
+                    <input type="text" name="visitVillage[]" placeholder="Enter village">
+                </div>
+
+
+                <div class="form-group">
+                    <label>
+                        Mandal<span class="required">*</span>
+                    </label>
+
+                    <input type="text" name="visitMandal[]" placeholder="Enter mandal">
+                </div>
+
+
+                <div class="form-group">
+                    <label>
+                        No. of Acres <span class="required">*</span>
+                    </label>
+
+                    <input type="number" name="visitAcres[]" min="0" step="0.01" placeholder="Enter acres">
+                </div>
+
+
+                <div class="form-group">
+                    <label>
+                        Mobile No <span class="required">*</span>
+                    </label>
+
+                    <input type="tel" name="visitMobile[]" placeholder="Enter mobile no" maxlength="10">
+                </div>
+
+
+                <div class="form-group">
+                    <label>
+                        Plant Health <span class="required">*</span>
+                    </label>
+
+                    <select name="plantHealth[]">
+                        <option value="">Select</option>
+                        <option value="Good">Good</option>
+                        <option value="Average">Average</option>
+                        <option value="Poor">Poor</option>
+                    </select>
+                </div>
+
+
+                <div class="form-group full-width">
+                    <label>
+                        Remarks <span class="required">*</span>
+                    </label>
+
+                    <textarea name="visitRemarks[]" rows="3" placeholder="Enter remarks (if any)"></textarea>
+                </div>
+
+            </div>
+        </div>
+
+    </template>
+
+
+    <!-- =========================================================
+         PLANTATION COMPLETED TEMPLATE
+    ========================================================== -->
+    <template id="plantationTemplate">
+
+        <div class="entry-card plantation-entry">
+
+            <div class="entry-card-header">
+
+                <div>
+                    <span class="entry-section-label">
+                        4. PLANTATION COMPLETED DATA
+                    </span>
+
+                    <span class="entry-number">
+                        Plantation <span class="entry-index"></span>
+                    </span>
+                </div>
+
+                <button type="button" class="remove-entry-btn" aria-label="Remove plantation">
+                    ×
+                </button>
+
+            </div>
+
+
+            <div class="entry-form-grid">
+
+                <div class="form-group">
+                    <label>
+                        Farmer Name<span class="required">*</span>
+                    </label>
+
+                    <input type="text" name="plantationFarmerName[]" placeholder="Enter farmer name">
+                </div>
+
+
+                <div class="form-group">
+                    <label>
+                        Village<span class="required">*</span>
+                    </label>
+
+                    <input type="text" name="plantationVillage[]" placeholder="Enter village">
+                </div>
+
+
+                <div class="form-group">
+                    <label>
+                        Mandal<span class="required">*</span>
+                    </label>
+
+                    <input type="text" name="plantationMandal[]" placeholder="Enter mandal">
+                </div>
+
+
+                <div class="form-group">
+                    <label>
+                        Plantation <span class="required">*</span>
+                    </label>
+
+                    <input type="number" name="plantationAcres[]" min="0" step="0.01" placeholder="Enter acres">
+                </div>
+
+
+                <div class="form-group">
+                    <label>
+                        No. of Seedlings <span class="required">*</span>
+                    </label>
+
+                    <input type="number" name="seedlings[]" min="0" placeholder="Enter number">
+                </div>
+
+
+                <div class="form-group">
+                    <label>
+                        Plants lifted - Nursery Name <span class="required">*</span>
+                    </label>
+
+                    <input type="text" name="nurseryName[]" placeholder="Enter nursery name">
+                </div>
+
+
+                <div class="form-group">
+                    <label>
+                        Planting Method <span class="required">*</span>
+                    </label>
+
+                    <input type="text" name="plantingMethod[]" placeholder="Enter method">
+                </div>
+
+
+                <div class="form-group full-width">
+                    <label>
+                        Remarks <span class="required">*</span>
+                    </label>
+
+                    <textarea name="plantationRemarks[]" rows="3" placeholder="Enter remarks (if any)"></textarea>
+                </div>
+
+            </div>
+        </div>
+
+    </template>
+
+
+    <!-- =========================================================
+         PLANT LIFTED TEMPLATE
+    ========================================================== -->
+    <template id="plantLiftedTemplate">
+
+        <div class="entry-card plant-lifted-entry">
+
+            <div class="entry-card-header">
+
+                <div>
+                    <span class="entry-section-label">
+                        5. PLANT LIFTED
+                    </span>
+
+                    <span class="entry-number">
+                        Plant Lifted <span class="entry-index"></span>
+                    </span>
+                </div>
+
+                <button type="button" class="remove-entry-btn" aria-label="Remove plant lifted entry">
+                    ×
+                </button>
+
+            </div>
+
+
+            <div class="entry-form-grid">
+
+                <div class="form-group">
+                    <label>
+                        Farmer Name<span class="required">*</span>
+                    </label>
+
+                    <input type="text" name="liftedFarmerName[]" placeholder="Enter farmer name">
+                </div>
+
+
+                <div class="form-group">
+                    <label>
+                        Village<span class="required">*</span>
+                    </label>
+
+                    <input type="text" name="liftedVillage[]" placeholder="Enter village">
+                </div>
+
+
+                <div class="form-group">
+                    <label>
+                        Mandal<span class="required">*</span>
+                    </label>
+
+                    <input type="text" name="liftedMandal[]" placeholder="Enter mandal">
+                </div>
+
+
+                <div class="form-group">
+                    <label>
+                        Plantation <span class="required">*</span>
+                    </label>
+
+                    <input type="number" name="liftedPlantation[]" min="0" step="0.01" placeholder="Enter acres">
+                </div>
+
+
+                <div class="form-group">
+                    <label>
+                        No. of Seedlings <span class="required">*</span>
+                    </label>
+
+                    <input type="number" name="liftedSeedlings[]" min="0" placeholder="Enter number">
+                </div>
+
+
+                <div class="form-group">
+                    <label>
+                        Plants lifted - Nursery Name <span class="required">*</span>
+                    </label>
+
+                    <input type="text" name="liftedNursery[]" placeholder="Enter nursery name">
+                </div>
+
+
+                <div class="form-group">
+                    <label>
+                        Planting Method <span class="required">*</span>
+                    </label>
+
+                    <input type="text" name="liftedPlantingMethod[]" placeholder="Enter method">
+                </div>
+
+
+                <div class="form-group full-width">
+                    <label>
+                        Remarks <span class="required">*</span>
+                    </label>
+
+                    <textarea name="liftedRemarks[]" rows="3" placeholder="Enter remarks (if any)"></textarea>
+                </div>
+
+            </div>
+        </div>
+    </template>
+    <!-- =========================================================
+         FFB PURCHASE / PROCUREMENT TEMPLATE
+    ========================================================== -->
+    <template id="ffbTemplate">
+        <div class="entry-card ffb-entry">
+            <div class="entry-card-header">
+                <div>
+                    <span class="entry-section-label">
+                        6. FFB PURCHASE / PROCUREMENT
+                    </span>
+                    <span class="entry-number">
+                        Purchase <span class="entry-index"></span>
+                    </span>
+                </div>
+                <button type="button" class="remove-entry-btn" aria-label="Remove FFB purchase">
+                    ×
+                </button>
+            </div>
+            <div class="entry-form-grid">
+                <div class="form-group">
+                    <label>
+                        Date of Collection<span class="required">*</span>
+                    </label>
+                    <input type="date" name="collectionDate[]">
+                </div>
+                <div class="form-group">
+                    <label>
+                        FFB Price <span class="required">*</span>
+                    </label>
+
+                    <input type="number" name="ffbPrice[]" min="0" step="0.01" placeholder="Enter price">
+                </div>
+                <div class="form-group">
+                    <label>
+                        Quantity Dispatched in MT <span class="required">*</span>
+                    </label>
+
+                    <input type="number" name="quantityDispatched[]" min="0" step="0.01" placeholder="Enter quantity">
+                </div>
+                <div class="form-group">
+                    <label>
+                        Factory Weighment MT <span class="required">*</span>
+                    </label>
+
+                    <input type="number" name="factoryWeighment[]" min="0" step="0.01" placeholder="Enter weight">
+                </div>
+                <div class="form-group">
+                    <label>
+                        FFB Loading Charges <span class="required">*</span>
+                    </label>
+
+                    <input type="number" name="loadingCharges[]" min="0" step="0.01" placeholder="Enter charges">
+                </div>
+                <div class="form-group">
+                    <label>
+                        FFB Transportation Charges <span class="required">*</span>
+                    </label>
+
+                    <input type="number" name="transportCharges[]" min="0" step="0.01" placeholder="Enter charges">
+                </div>
+                <div class="form-group">
+                    <label>
+                        Name of the farmer<span class="required">*</span>
+                    </label>
+                    <input type="text" name="ffbFarmerName[]" placeholder="Enter farmer name">
+                </div>
+                <div class="form-group">
+                    <label>
+                        Village <span class="required">*</span>
+                    </label>
+                    <input type="text" name="ffbVillage[]" placeholder="Enter village">
+                </div>
+                <div class="form-group">
+                    <label>
+                        Mandal <span class="required">*</span>
+                    </label>
+                    <input type="text" name="ffbMandal[]" placeholder="Enter mandal">
+                </div>
+                <div class="form-group">
+                    <label>
+                        Quantity in MT <span class="required">*</span>
+                    </label>
+
+                    <input type="number" name="ffbQuantity[]" min="0" step="0.01" placeholder="Enter quantity">
+                </div>
+                <div class="form-group">
+                    <label>
+                        Mobile <span class="required">*</span>
+                    </label>
+                    <input type="tel" name="ffbMobile[]" maxlength="10" placeholder="Enter mobile">
+                </div>
+                <div class="form-group full-width">
+                    <label>Remarks <span class="required">*</span></label> 
+                    <textarea name="ffbRemarks[]" rows="3" placeholder="Enter remarks (if any)"></textarea>
+                </div>
+            </div>
+        </div>
+    </template>
+    <script src="script.js"></script>
+</body>
+</html>
